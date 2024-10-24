@@ -1,0 +1,89 @@
+.admin-home {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100vh;
+}
+
+.admin-home a {
+  border: 1px solid;
+  padding: 2rem;
+}
+
+.admin-projects {
+  width: 100%;
+  min-height: 100vh;
+  padding: 6rem 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 10% auto;
+  grid-template-areas:
+    "tl bt"
+    "tb tb";
+}
+
+.page-title {
+  grid-area: tl;
+}
+
+.add-project,
+.add-post {
+  grid-area: bt;
+
+  border: 1px solid;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.new-project {
+  width: 100%;
+  min-height: 100vh;
+  padding: 6rem 0;
+}
+
+.project-form div {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  justify-content: space-between;
+  /* width: 100%; */
+}
+.project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.project-form input {
+  background: none;
+  border-bottom: 1px solid var(--foreground);
+}
+
+input[type="submit"] {
+  border: 1px solid;
+  padding: 0.4rem;
+  margin: 0.2rem 0;
+}
+
+td {
+  padding: 1rem;
+}
+
+thead th {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-weight: bold;
+  padding: 1rem;
+  /* font-size: 14px; */
+  border: 1px solid;
+}
+
+table tbody td {
+  color: #636363;
+  border: 1px solid #636363;
+}

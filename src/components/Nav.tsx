@@ -15,8 +15,9 @@ export function NavLink({ ...props }) {
   return (
     <Link
       href={props.href}
-      {...props}
       className={`nav-link ${currentPath === props.href ? "active" : ""}`}
-    />
+    >
+      {props.children}
+    </Link>
   );
 }

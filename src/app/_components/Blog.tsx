@@ -12,9 +12,9 @@ export default function Blog() {
 
       <div className="blog-detail">
         <p>
-          This is a space for me to share some of the stuff I learn overtime and
+          {`This is a space for me to share some of the stuff I learn overtime and
           some of my thoughts on certain topics... feel free to leave your's in
-          the comments.
+          the comments.`}
         </p>
       </div>
 
