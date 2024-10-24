@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { MuseoModerno } from "next/font/google";
 import "material-symbols";
 import "./globals.css";
+import localFont from "next/font/local";
 
-const museomoderno = MuseoModerno({
-  subsets: ["latin"],
-  weight: "200",
-});
+const myFont = localFont({ src: "../assets/Museomoderno.ttf" });
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -18,9 +15,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${museomoderno.className} antialiased`}>
-        {children}
-      </body>
+      <body className={myFont.className}>{children}</body>
     </html>
   );
 }

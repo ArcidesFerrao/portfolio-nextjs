@@ -19,7 +19,7 @@ export default function Projects() {
             <span className="material-symbols-outlined pr-i">
               farsight_digital
             </span>
-            <a href="https://arcidesferrao.github.io/relogio-digital/">
+            <a href="https://arcidesferrao.github.io/clock-timer/">
               <h3>Digital Clock</h3>
             </a>
           </div>
