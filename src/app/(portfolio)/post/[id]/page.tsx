@@ -2,11 +2,8 @@ import db from "@/db/db";
 import { notFound } from "next/navigation";
 import React from "react";
 
-export default async function BlogPost({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+export default async function BlogPost({ params }: { params: { id: string } }) {
+  const { id } = await params;
   const postData = await db.post.findUnique({ where: { id } });
 
   if (postData == null) return notFound();

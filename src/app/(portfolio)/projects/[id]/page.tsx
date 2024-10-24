@@ -3,10 +3,15 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 export default async function ProjectPage({
-  params: { id },
+  params,
 }: {
   params: { id: string };
 }) {
+  //   params: { id },
+  // }: {
+  //   params: { id: string };
+  // }) {
+  const { id } = await params;
   const project = await db.project.findUnique({ where: { id } });
 
   if (project == null) return notFound();
