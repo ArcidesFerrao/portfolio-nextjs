@@ -18,6 +18,10 @@ export default function AuthorForm() {
         <input type="text" name="email" id="email" required />
       </div>
       <div>
+        <label htmlFor="link">Resume</label>
+        <input type="text" name="link" id="link" required />
+      </div>
+      <div>
         <label htmlFor="image">Image</label>
         <input type="file" name="image" id="image" required />
       </div>

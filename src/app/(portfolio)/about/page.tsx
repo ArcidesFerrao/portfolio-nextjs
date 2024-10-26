@@ -1,5 +1,6 @@
 import React from "react";
 import db from "@/db/db";
+// import Image from "next/image";
 
 async function getAuthorData() {
   const author = await db.author.findFirst({
@@ -7,12 +8,16 @@ async function getAuthorData() {
       id: true,
       name: true,
       email: true,
+      imagePath: true,
+      resumeLink: true,
     },
   });
 
   return {
     name: author?.name,
     email: author?.email,
+    image: author?.imagePath,
+    resumeLink: author?.resumeLink,
   };
 }
 
@@ -32,11 +37,18 @@ export default async function AboutPage() {
       </div>
 
       <div className="personal-image">
-        <div className="personal-portrait">{/* <img src="" alt="" /> */}</div>
+        <div className="personal-portrait">
+          <img
+            src={authorData.image}
+            alt="Arcides Ferrao"
+            width={300}
+            height={300}
+          />
+        </div>
         <div className="personal-resume">
           <a
             className="res-button cont"
-            href="https://arcidesferrao.github.io/resume/"
+            href={authorData.resumeLink}
             target="_blank"
           >
             View Résumé

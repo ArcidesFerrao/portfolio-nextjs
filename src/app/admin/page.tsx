@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-// import AuthorForm from "./_components/AuthorForm";
+import AuthorForm from "./_components/AuthorForm";
 
 export default function AdminPage() {
   return (
@@ -14,7 +14,7 @@ export default function AdminPage() {
         </Link>
       </div>
 
-      {/* <AuthorForm /> */}
+      <AuthorForm />
     </>
   );
 }

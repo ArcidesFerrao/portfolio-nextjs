@@ -12,6 +12,7 @@ const imageSchema = fileSchema.refine(file => file.size === 0 || file.type.start
 const addSchema = z.object({
     name: z.string().min(1),
     email: z.string().min(1),
+    link: z.string().min(1),
     image: imageSchema.refine(file => file.size> 0, "Required"),
 })
 
@@ -33,6 +34,7 @@ export async function addAuthor(prevState: unknown ,formData: FormData) {
     data: {
         name: data.name,
         email: data.email,
+        resumeLink: data.link,
         imagePath,
     }
   })
