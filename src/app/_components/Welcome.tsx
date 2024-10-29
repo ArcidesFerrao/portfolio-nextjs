@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Welcome() {
   return (
-    <div className="well gridAuto">
+    <div className="well flexDisplay padd">
       <div className="greet">
         <h1>Hi there!</h1>
         <h1>I am John Doe</h1>

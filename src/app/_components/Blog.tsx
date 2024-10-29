@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Blog() {
   return (
-    <div className="blog-container flexDisplay">
+    <div className="blog-container flexDisplay padd">
       <div className="title-blog">
         <Link href="/blog">
           <h2>Blog</h2>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="footer-container smallPadding">
+    <div className="footer-container padd">
       <div className="built-container">
         <h4>Built with:</h4>
 

@@ -1,20 +1,20 @@
-import React from "react";
-import scRelogio1 from "../../assets/Sc-1.png";
-import scRelogio2 from "../../assets/Sc-2.png";
-import scCard from "../../assets/Sc-card.png";
+// import scRelogio1 from "../../assets/Sc-1.png";
+// import scRelogio2 from "../../assets/Sc-2.png";
+// import scCard from "../../assets/Sc-card.png";
 import Image from "next/image";
 import Link from "next/link";
+import db from "@/db/db";
 
 export default function Projects() {
   return (
-    <div className="projects-container">
+    <div className="projects-container padd">
       <div className="title-projects">
         <Link href="/projects">
           <h2>Projects</h2>
         </Link>
       </div>
       <div className="project flexDisplay">
-        <div className="pr1 project-box">
+        {/* <div className="pr1 project-box">
           <div className="pr-title">
             <span className="material-symbols-outlined pr-i">
               farsight_digital
@@ -81,8 +81,63 @@ export default function Projects() {
             <div className="pr-block"></div>
             <div className="pr-img resume"></div>
           </div>
-        </div>
+        </div> */}
+        <ProjectList />
       </div>
     </div>
   );
+}
+
+async function ProjectList() {
+  const projectsData = getProjects();
+
+  if ((await projectsData).length === 0)
+    return <div className="project-box">0 projects available...</div>;
+
+  return (
+    <>
+      {projectsData &&
+        (await projectsData).map((project, id) => (
+          <div className="project-box" key={id}>
+            <div className="pr-title">
+              <span className="material-symbols-outlined pr-i">assignment</span>
+
+              <a href={project.projectLink}>
+                <h3>{project.projectName}</h3>
+              </a>
+            </div>
+            <div className="pr-screen">
+              <div className="pr-block"></div>
+              <div className="pr-img clock">
+                <Image
+                  src={project.imagePath}
+                  alt={project.projectName}
+                  className="sc hover"
+                />
+                <Image
+                  src={project.imagePath}
+                  alt={project.projectName}
+                  className="sc main"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+    </>
+  );
+}
+
+async function getProjects() {
+  const projects = await db.project.findMany({
+    select: {
+      id: true,
+      projectName: true,
+      imagePath: true,
+      description: true,
+      projectLink: true,
+    },
+    orderBy: { projectName: "desc" },
+  });
+
+  return projects;
 }

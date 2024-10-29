@@ -7,7 +7,7 @@ export default async function BlogPage() {
   const posts = getPosts();
 
   return (
-    <div className="blog-page adjustPadding">
+    <div className="blog-page padd">
       {/* <PostCategories /> */}
       <section className="blog-posts flexDis">
         <div className="blog-head">
@@ -20,7 +20,9 @@ export default async function BlogPage() {
         </div>
 
         <div className="posts">
-          {posts &&
+          {(await posts).length === 0 ? (
+            <div>0 posts found...</div>
+          ) : (
             (await posts).map((post, index) => (
               <div className="post cont" key={index}>
                 <div className="post-img">
@@ -54,7 +56,8 @@ export default async function BlogPage() {
                   </div>
                 </div>
               </div>
-            ))}
+            ))
+          )}
         </div>
       </section>
     </div>

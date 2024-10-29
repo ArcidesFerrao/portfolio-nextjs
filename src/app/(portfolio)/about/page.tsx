@@ -25,7 +25,7 @@ export default async function AboutPage() {
   const authorData = await getAuthorData();
 
   return (
-    <div className="about-page flexDisplay">
+    <div className="about-page flexDisplay padd">
       <div className="personal-info">
         <div className="personal-intro">
           <h2 className="introduction">
