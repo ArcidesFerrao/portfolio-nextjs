@@ -3,7 +3,7 @@ import "material-symbols";
 import "./globals.css";
 import localFont from "next/font/local";
 
-const myFont = localFont({ src: "../assets/Museomoderno.ttf" });
+const myFont = localFont({ src: "../assets/MuseoModerno.ttf" });
 
 export const metadata: Metadata = {
   title: "Portfolio",
