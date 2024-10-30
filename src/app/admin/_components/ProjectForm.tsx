@@ -16,7 +16,12 @@ export default function ProjectForm() {
       <div>
         <label htmlFor="description">Description</label>
         <input type="text" name="description" id="description" required />
-        {error.description && <div>{error.projectName}</div>}
+        {error.description && <div>{error.description}</div>}
+      </div>
+      <div>
+        <label htmlFor="projectLink">Project Link</label>
+        <input type="text" name="projectLink" id="projectLink" required />
+        {error.projectLink && <div>{error.projectLink}</div>}
       </div>
       <div>
         <label htmlFor="tech">Technologies</label>

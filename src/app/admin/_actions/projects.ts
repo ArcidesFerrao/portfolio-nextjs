@@ -12,6 +12,7 @@ const imageSchema = fileSchema.refine(file => file.size === 0 || file.type.start
 const addSchema = z.object({
     projectName: z.string().min(1),
     description: z.string().min(1),
+    projectLink: z.string().min(1),
     tech: z.string().min(1),
     image: imageSchema.refine(file => file.size> 0, "Required"),
 })
@@ -32,10 +33,11 @@ export async function addProject(prevState: unknown ,formData: FormData) {
     
     await db.project.create({
         data: {
-            authorId: "8a2dc2eb-fe1d-48fa-a1e9-f7dca70d2684",
+            authorId:"8a2dc2eb-fe1d-48fa-a1e9-f7dca70d2684",
             projectName: data?.projectName,
             description: data?.description,
             tech: data?.tech,
+            projectLink: data.projectLink,
             imagePath,
         }
     })

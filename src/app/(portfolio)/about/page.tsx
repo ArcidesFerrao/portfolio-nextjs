@@ -39,8 +39,8 @@ export default async function AboutPage() {
       <div className="personal-image">
         <div className="personal-portrait">
           <img
-            src={authorData.image}
             alt="Arcides Ferrao"
+            src={authorData.image}
             width={300}
             height={300}
           />

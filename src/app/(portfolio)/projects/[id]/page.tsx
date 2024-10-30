@@ -2,12 +2,16 @@ import db from "@/db/db";
 import { notFound } from "next/navigation";
 import React from "react";
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = await params;
+// export default async function ProjectPage({
+// params,
+// }: {
+// params: { id: string };
+// }) {
+
+type id = Promise<{ id: string }>;
+
+export default async function ProjectPage(props: { params: id }) {
+  const { id } = await props.params;
   const project = await db.project.findUnique({ where: { id } });
 
   if (project == null) return notFound();
