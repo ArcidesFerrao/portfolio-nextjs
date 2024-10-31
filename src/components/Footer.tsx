@@ -7,14 +7,14 @@ export default function Footer() {
         <h4>Built with:</h4>
 
         <div className="small-skill">
-          <span className="logos--react"></span>
+          <span className="skill-icons--nextjs-light"></span>
 
-          <h4>React</h4>
+          <h4>Next</h4>
         </div>
 
         <div className="small-skill">
-          <span className="devicon--sanity"></span>
-          <h4>Sanity</h4>
+          <span className="vscode-icons--file-type-prisma"></span>
+          <h4>Prisma</h4>
         </div>
       </div>
       <div className="copy-container">
