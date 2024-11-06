@@ -21,7 +21,12 @@ export default async function ProjectsPage() {
             <div className="project-container" key={index}>
               <div className="project-image">
                 {/* <Image src={project.imagePath} alt={project.projectName} /> */}
-                <Image src={project.imagePath} alt={project.projectName} />
+                <Image
+                  src={project.imagePath}
+                  alt={project.projectName}
+                  width={300}
+                  height={300}
+                />
               </div>
 
               <div className="project-detail">

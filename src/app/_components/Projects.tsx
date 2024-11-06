@@ -113,10 +113,14 @@ async function ProjectList() {
                   src={project.imagePath}
                   alt={project.projectName}
                   className="sc hover"
+                  width={300}
+                  height={300}
                 />
                 <Image
                   src={project.imagePath}
                   alt={project.projectName}
+                  width={300}
+                  height={300}
                   className="sc main"
                 />
               </div>
