@@ -2,7 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 import { addProject } from "../_actions/projects";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { UploadDropzone } from "@/app/lib/uploadthing";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
@@ -19,6 +19,7 @@ const addSchema = z.object({
 
 export default function ProjectForm() {
   // const [error, action] = useActionState(addProject, {});
+  const [image, setImage] = useState<string>("");
   const [lastResult, action] = useActionState(addProject, undefined);
   const [form, fields] = useForm({
     lastResult,
@@ -57,8 +58,27 @@ export default function ProjectForm() {
       </div>
       <div>
         <label htmlFor="image">Image path</label>
+        <input
+          type="hidden"
+          value={image}
+          key={fields.image.key}
+          name="image"
+          defaultValue={fields.image.initialValue}
+        />
         {/* <input type="file" name="image" id="image" required /> */}
-        <UploadDropzone endpoint="imageUploader" />
+        {image !== "" ? (
+          <img src={image} width={300} />
+        ) : (
+          <UploadDropzone
+            endpoint="imageUploader"
+            onClientUploadComplete={(res) => {
+              setImage(res[0].url);
+            }}
+            onUploadError={() => {
+              alert("something went wrong");
+            }}
+          />
+        )}
         {/* {error.image && <div>{error.image}</div>} */}
       </div>
 

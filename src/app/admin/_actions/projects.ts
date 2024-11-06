@@ -30,7 +30,7 @@ export async function addProject(prevState: unknown, formData: FormData) {
 
     await db.project.create({
                 data: {
-                    authorId:"8a2dc2eb-fe1d-48fa-a1e9-f7dca70d2684",
+                    authorId:"cc132fc1-8cbb-4e40-8a82-3c62ab395648",
                     projectName: submission.value.projectName,
                     description: submission.value.description,
                     tech: submission.value.tech,
@@ -38,9 +38,7 @@ export async function addProject(prevState: unknown, formData: FormData) {
                     imagePath: submission.value.image,
                 }
             })
-
     redirect("/admin/projects");
-
 }
 
 
