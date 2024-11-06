@@ -20,20 +20,22 @@ export const ourFileRouter = {
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
     //   return { userId: user.id };
     // })
-    .onUploadComplete(async ({ metadata, file }) => {
+    // .onUploadComplete(async ({ metadata, file }) => {
+    .onUploadComplete(async ({ file }) => {
       // This code RUNS ON YOUR SERVER after upload
       // console.log("Upload complete for:", metadata);
       console.log("file url", file.url);
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
-      return { uploadedBy: metadata };
+      return { uploaded: file };
     }),
 
     bannerImageRoute: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
-    .onUploadComplete(async ({ metadata, file }) => {
+    // .onUploadComplete(async ({ metadata, file }) => {
+    .onUploadComplete(async ({ file }) => {
       console.log("file url", file.url);
-      console.log(metadata);
-      return { uploadedAt: file.url };
+      // console.log(metadata);
+      return { uploadedAt: file.url }
     })
 
 } satisfies FileRouter;
