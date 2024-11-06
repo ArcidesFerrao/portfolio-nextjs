@@ -102,7 +102,7 @@ async function ProjectList() {
             <div className="pr-title">
               <span className="material-symbols-outlined pr-i">assignment</span>
 
-              <a href={project.projectLink}>
+              <a href={`/projects/${project.id}`}>
                 <h3>{project.projectName}</h3>
               </a>
             </div>

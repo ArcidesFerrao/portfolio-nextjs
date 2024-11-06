@@ -16,7 +16,12 @@ export default function Skills() {
         <span className="uil--react skill-i">react</span>
       </div>
       <div className="skill">
-        <span className="simple-icons--sanity skill-i">sanity</span>
+        {/* <span className="simple-icons--sanity skill-i">sanity</span> */}
+        <span className="file-icons--nextjs skill-i"></span>
+      </div>
+      <div className="skill">
+        {/* <span className="simple-icons--sanity skill-i">sanity</span> */}
+        <span className="lineicons--prisma skill-i"></span>
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ export default function PortfolioLayout({
         </div>
 
         <div className="nav-menu">
-          <span className="gg--dark-mode"></span>
+          <span className="arcticons--darkmodelivewallpaper skill-i"></span>
         </div>
       </Nav>
       <div className="page-content">{children}</div>

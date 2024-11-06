@@ -20,7 +20,9 @@ export default async function ProjectPage(props: { params: id }) {
     <div className="page-container adjustSize">
       <div className="head-project">
         <h2>{project?.projectName}</h2>
-        <div className="url-container">{/* <a href={}>Explore</a> */}</div>
+        <div className="url-container">
+          <a href={project.projectLink}>Explore</a>
+        </div>
       </div>
 
       <div className="image-project">
