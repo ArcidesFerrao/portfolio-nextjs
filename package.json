@@ -10,12 +10,16 @@
     "postinstall": "npx prisma generate"
   },
   "dependencies": {
+    "@conform-to/react": "^1.2.2",
+    "@conform-to/zod": "^1.2.2",
     "@prisma/client": "^5.21.1",
+    "@uploadthing/react": "^7.1.0",
     "material-symbols": "^0.25.1",
     "next": "15.0.0",
     "react": "19.0.0-rc-65a56d0e-20241020",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
     "ts-node": "^10.9.2",
+    "uploadthing": "^7.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
