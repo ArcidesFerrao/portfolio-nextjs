@@ -15,6 +15,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="/assets/icon.png"
+          type="image/png"
+          sizes="32x32"
+        />
+      </head>
       <body className={myFont.className}>{children}</body>
     </html>
   );
