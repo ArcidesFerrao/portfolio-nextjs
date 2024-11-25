@@ -1,5 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import db from "@/db/db";
+
 // import Image from "next/image";
 
 async function getAuthorData() {
@@ -32,8 +34,24 @@ export default async function AboutPage() {
             {`I'm ${authorData.name}, born and raised in Mozambique...`}
           </h2>
         </div>
-        <div className="personal-details"></div>
-        <div className="personal-comment"></div>
+        <div className="personal-details">
+          <p>
+            a passionate frontend developer. My journey in technology has been
+            driven by a deep love for creativity and problem-solving. With a
+            focus on crafting visually stunning and user-friendly web
+            applications.
+          </p>
+        </div>
+        <div className="personal-comment">
+          <p>
+            <q>
+              I believe in the transformative power of technology to solve
+              real-world problems. Through my portfolio, I invite you to explore
+              the intersection of my technical and creative pursuits. Let's
+              connect and build something impactful together!
+            </q>
+          </p>
+        </div>
       </div>
 
       <div className="personal-image">
@@ -66,25 +84,63 @@ export default async function AboutPage() {
       </div>
 
       <div className="personal-skills">
-        <div className="title-skills">
-          <h3 className="pr-page-title">Soft Skills</h3>
-        </div>
-        <div className="skills-block">
-          <p></p>
-        </div>
-      </div>
+        <section>
+          <h4>Tech Stack</h4>
 
-      <div className="personal-setup">
-        <h3 className="pr-page-title">Setup</h3>
-
-        <div className="block-setup"></div>
-        <div className="setup-img"></div>
-      </div>
-
-      <div className="personal-tech">
-        <div className="title-tech">
-          <h3 className="pr-page-title">Technologies</h3>
-        </div>
+          <ul>
+            <li>
+              <strong>Languages:</strong> HTML5, CSS3, JavaScript (ES6+)
+            </li>
+            <li>
+              <strong>Frontend Frameworks:</strong> React 18+, Next.js
+            </li>
+            <li>
+              <strong>Backend & APIs:</strong> Next.js API Routes, Node.js
+            </li>
+            <li>
+              <strong>Database:</strong> PostgreSQL (hosted on Neon Console),
+              Prisma ORM
+            </li>
+            <li>
+              <strong>Authentication:</strong> NextAuth.js (Google and GitHub
+              providers)
+            </li>
+            <li>
+              <strong>Styling:</strong> Tailwind CSS
+            </li>
+            <li>
+              <strong>DevOps & Hosting:</strong> Vercel, GitHub Actions
+            </li>
+            <li>
+              <strong>Developer Tools:</strong> ESLint, Prettier, Figma
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h4>Soft Skills</h4>
+          <ul>
+            <li>
+              <strong>Responsive Design</strong>: Delivering user-friendly
+              experiences across mobile, tablet, and desktop devices.
+            </li>
+            <li>
+              <strong>User Authentication</strong>: Implementing OAuth-based
+              secure login flows.
+            </li>
+            <li>
+              <strong>Database Management</strong>: Schema modeling and
+              efficient queries using Prisma.
+            </li>
+            <li>
+              <strong>Problem Solving</strong>: Efficient debugging and
+              optimization of applications.
+            </li>
+            <li>
+              <strong>Collaboration</strong>: Teamwork through Git version
+              control and code reviews.
+            </li>
+          </ul>
+        </section>
       </div>
     </div>
   );

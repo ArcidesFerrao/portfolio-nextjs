@@ -21,3 +21,27 @@ export function NavLink({ ...props }) {
     </Link>
   );
 }
+
+export function NavButton() {
+  // const [menu, setMenu] = useState(false);
+
+  return (
+    <div className="nav-button">
+      <button>
+        <span className="line-md--close-to-menu-transition"></span>
+      </button>
+
+      <ul>
+        <li>
+          <NavLink href="/projects">Projects</NavLink>
+        </li>
+        <li>
+          <NavLink href="/blog">Blog</NavLink>
+        </li>
+        <li>
+          <NavLink href="/about">About</NavLink>
+        </li>
+      </ul>
+    </div>
+  );
+}

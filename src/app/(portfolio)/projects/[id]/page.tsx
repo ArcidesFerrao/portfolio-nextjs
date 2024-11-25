@@ -1,12 +1,7 @@
+import ProjectReadme from "@/app/_components/ProjectReadMe";
 import db from "@/db/db";
 import { notFound } from "next/navigation";
 import React from "react";
-
-// export default async function ProjectPage({
-// params,
-// }: {
-// params: { id: string };
-// }) {
 
 type id = Promise<{ id: string }>;
 
@@ -16,35 +11,21 @@ export default async function ProjectPage(props: { params: id }) {
 
   if (project == null) return notFound();
 
+  const response = await fetch(
+    `https://api.github.com/repos/ArcidesFerrao/clock-timer/readme`,
+    {
+      headers: { Accept: "application/vnd.github.ve+json" },
+    }
+  );
+
+  const readmeData = await response.json();
+  const readmeContent = Buffer.from(readmeData.content, "base64").toString(
+    "utf-8"
+  );
+
   return (
-    <div className="page-container adjustSize">
-      <div className="head-project">
-        <h2>{project?.projectName}</h2>
-        <div className="url-container">
-          <a href={project.projectLink}>Explore</a>
-        </div>
-      </div>
-
-      <div className="image-project">
-        <img src={project?.imagePath} alt="" />
-      </div>
-
-      <div className="overview-project sec">
-        <div className="over-title">
-          <h3 className="pr-page-title">Overview</h3>
-        </div>
-
-        <div className="over-block">
-          <p>{project?.description}</p>
-        </div>
-      </div>
-
-      <div className="tec-project sec">
-        <div className="technology-title">
-          <h3 className="pr-page-title">Technologies</h3>
-        </div>
-        <div className="technology-list">{project?.tech}</div>
-      </div>
+    <div className="project-page adjustSize">
+      <ProjectReadme content={readmeContent} />
     </div>
   );
 }
