@@ -11,12 +11,9 @@ export default async function ProjectPage(props: { params: id }) {
 
   if (project == null) return notFound();
 
-  const response = await fetch(
-    `https://api.github.com/repos/ArcidesFerrao/clock-timer/readme`,
-    {
-      headers: { Accept: "application/vnd.github.ve+json" },
-    }
-  );
+  const response = await fetch(project.projectLink, {
+    headers: { Accept: "application/vnd.github.ve+json" },
+  });
 
   const readmeData = await response.json();
   const readmeContent = Buffer.from(readmeData.content, "base64").toString(

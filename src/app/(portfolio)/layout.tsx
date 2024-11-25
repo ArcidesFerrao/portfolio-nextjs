@@ -16,6 +16,8 @@ export default function PortfolioLayout({
 
           <NavLink href="/blog">Blog</NavLink>
 
+          {/* <NavLink href="/music">Music</NavLink> */}
+
           <NavLink href="/about">About</NavLink>
         </div>
 

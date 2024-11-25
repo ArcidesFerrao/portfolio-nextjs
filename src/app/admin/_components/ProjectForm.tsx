@@ -39,25 +39,21 @@ export default function ProjectForm() {
       <div>
         <label htmlFor="projectName">Name</label>
         <input type="text" name="projectName" id="name" required />
-        {fields.projectName.errors && <div>{fields.projectName.errors}</div>}
       </div>
       <div>
         <label htmlFor="description">Description</label>
         <input type="text" name="description" id="description" required />
-        {/* {error.description && <div>{error.description}</div>} */}
       </div>
       <div>
         <label htmlFor="projectLink">Project Link</label>
         <input type="text" name="projectLink" id="projectLink" required />
-        {/* {error.projectLink && <div>{error.projectLink}</div>} */}
       </div>
       <div>
         <label htmlFor="tech">Technologies</label>
         <input type="text" name="tech" id="tech" required />
-        {/* {error.tech && <div>{error.tech}</div>} */}
       </div>
       <div>
-        <label htmlFor="image">Image path</label>
+        <label htmlFor="image">Image</label>
         <input
           type="hidden"
           value={image}
@@ -79,8 +75,8 @@ export default function ProjectForm() {
             }}
           />
         )}
-        {/* {error.image && <div>{error.image}</div>} */}
       </div>
+      {fields.projectName.errors && <div>{fields.projectName.errors}</div>}
 
       <SubmitButton />
     </form>

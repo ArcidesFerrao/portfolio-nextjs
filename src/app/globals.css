@@ -690,6 +690,11 @@ li {
   }
 }
 
+.music-container {
+  padding: 4rem 0;
+  width: max-content;
+}
+
 .about-page {
   color: #bdbdbd;
   min-height: 100vh;
@@ -916,8 +921,9 @@ li {
   }
 
   .description-text {
+    padding: 0.2rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-justify: newspaper;

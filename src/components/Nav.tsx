@@ -39,6 +39,9 @@ export function NavButton() {
           <NavLink href="/blog">Blog</NavLink>
         </li>
         <li>
+          <NavLink href="/music">Music</NavLink>
+        </li>
+        <li>
           <NavLink href="/about">About</NavLink>
         </li>
       </ul>
