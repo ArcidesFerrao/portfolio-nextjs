@@ -26,6 +26,6 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
         const readmeContent = Buffer.from(data.content, 'base64').toString('utf-8');
         res.status(200).json({ content: readmeContent });
     } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch README'});
+        res.status(500).json({ error: `Failed to fetch README ${error}`});
     }
 }
