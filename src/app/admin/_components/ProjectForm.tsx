@@ -6,16 +6,7 @@ import { useActionState, useState } from "react";
 import { UploadDropzone } from "@/app/lib/uploadthing";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { z } from "zod";
-
-const addSchema = z.object({
-  projectName: z.string().min(1),
-  description: z.string().min(1),
-  projectLink: z.string().min(1),
-  tech: z.string().min(1),
-  image: z.string().min(1, "At least one image is required"),
-  // image: imageSchema.refine(file => file.size> 0, "Required"),
-});
+import { projectSchema } from "../schema/addProjectSchema";
 
 export default function ProjectForm() {
   // const [error, action] = useActionState(addProject, {});
@@ -24,7 +15,7 @@ export default function ProjectForm() {
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }) {
-      return parseWithZod(formData, { schema: addSchema });
+      return parseWithZod(formData, { schema: projectSchema });
     },
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
@@ -61,7 +52,6 @@ export default function ProjectForm() {
           name="image"
           defaultValue={fields.image.initialValue}
         />
-        {/* <input type="file" name="image" id="image" required /> */}
         {image !== "" ? (
           <img src={image} width={300} />
         ) : (
