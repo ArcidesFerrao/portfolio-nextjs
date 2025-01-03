@@ -1,0 +1,23 @@
+.dropzoneCustom {
+  border: solid 1px var(--foreground);
+  display: flex !important ;
+  flex-direction: column-reverse;
+  width: max-content;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.dropzoneButton {
+  display: flex !important;
+  width: fit-content;
+  justify-content: center !important;
+  align-items: center;
+  text-align: center;
+
+  button {
+    justify-self: center;
+    align-self: center;
+    padding: 1rem;
+    background-color: var(--foreground);
+  }
+}

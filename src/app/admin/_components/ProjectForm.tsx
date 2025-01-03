@@ -7,10 +7,13 @@ import { UploadDropzone } from "@/app/lib/uploadthing";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { projectSchema } from "../schema/addProjectSchema";
+import { MultiUploader } from "./CustomDropZone";
 
 export default function ProjectForm() {
   // const [error, action] = useActionState(addProject, {});
   const [image, setImage] = useState<string>("");
+  const [images, setImages] = useState<string[]>([]);
+
   const [lastResult, action] = useActionState(addProject, undefined);
   const [form, fields] = useForm({
     lastResult,
@@ -20,10 +23,30 @@ export default function ProjectForm() {
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
   });
+
+  const handleImagesUpload = (urls: string[]) => {
+    setImages((prevImages) => [...prevImages, ...urls]);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const formData = {
+      projectName: form.value?.projectName,
+      projectLink: form.value?.projectLink,
+      description: form.value?.description,
+      tech: form.value?.tech,
+      images,
+    };
+
+    console.log("Form Data:", formData);
+    form.onSubmit(e);
+  };
+
   return (
     <form
       id={form.id}
-      onSubmit={form.onSubmit}
+      onSubmit={handleSubmit}
       action={action}
       className="project-form"
     >
@@ -56,6 +79,7 @@ export default function ProjectForm() {
           <img src={image} width={300} />
         ) : (
           <UploadDropzone
+            className="border-blue-500 "
             endpoint="imageUploader"
             onClientUploadComplete={(res) => {
               setImage(res[0].url);
@@ -67,6 +91,10 @@ export default function ProjectForm() {
         )}
       </div>
       {fields.projectName.errors && <div>{fields.projectName.errors}</div>}
+
+      <div>
+        <MultiUploader onImagesUploaded={handleImagesUpload} />
+      </div>
 
       <SubmitButton />
     </form>
