@@ -47,9 +47,9 @@
 
 .project-form div {
   display: grid;
-  grid-template-columns: 40% 60%;
+  /* grid-template-columns: 40% 60%; */
   justify-content: space-between;
-  /* width: 100%; */
+  width: 100%;
 }
 .project-form {
   display: flex;
@@ -61,9 +61,16 @@
 
 .project-form input {
   background: none;
-  border-bottom: 1px solid var(--foreground);
+  border: 1px solid var(--foreground);
+  padding: 1rem;
+  min-width: 400px;
+  width: 100%;
 }
 
+input[type="submit"]:hover {
+  color: var(--background);
+  background-color: var(--foreground);
+}
 input[type="submit"] {
   border: 1px solid;
   padding: 0.4rem;

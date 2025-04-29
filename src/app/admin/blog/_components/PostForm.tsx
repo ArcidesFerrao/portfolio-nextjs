@@ -9,29 +9,65 @@ export default function PostForm() {
   return (
     <form action={action} className="project-form">
       <div>
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" id="title" required />
+        {/* <label htmlFor="title">Title</label> */}
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          required
+        />
         {error?.title && <div>{error.title}</div>}
       </div>
       <div>
-        <label htmlFor="description">Description</label>
-        <input type="text" name="description" id="description" required />
+        {/* <label htmlFor="description">Description</label> */}
+        <input
+          type="text"
+          name="description"
+          id="description"
+          placeholder="Description"
+          required
+        />
       </div>
       <div>
-        <label htmlFor="intro">Intro</label>
-        <input type="text" name="intro" id="intro" required />
+        {/* <label htmlFor="intro">Intro</label> */}
+        <input
+          type="text"
+          name="intro"
+          id="intro"
+          placeholder="Intro"
+          required
+        />
       </div>
       <div>
-        <label htmlFor="outro">Outro</label>
-        <input type="text" name="outro" id="outro" required />
+        {/* <label htmlFor="outro">Outro</label> */}
+        <input
+          type="text"
+          name="outro"
+          id="outro"
+          placeholder="Outro"
+          required
+        />
       </div>
       <div>
-        <label htmlFor="references">References</label>
-        <input type="text" name="references" id="references" required />
+        {/* <label htmlFor="references">References</label> */}
+        <input
+          type="text"
+          name="references"
+          id="references"
+          placeholder="References"
+          required
+        />
       </div>
       <div>
-        <label htmlFor="image">Image path</label>
-        <input type="file" name="image" id="image" required />
+        {/* <label htmlFor="image">Image path</label> */}
+        <input
+          type="file"
+          name="image"
+          id="image"
+          placeholder="Image path"
+          required
+        />
       </div>
 
       <input type="submit" value="Submit" />

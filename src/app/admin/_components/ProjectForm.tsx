@@ -7,12 +7,9 @@ import { UploadDropzone } from "@/app/lib/uploadthing";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { projectSchema } from "../schema/addProjectSchema";
-import { MultiUploader } from "./CustomDropZone";
 
 export default function ProjectForm() {
-  // const [error, action] = useActionState(addProject, {});
   const [image, setImage] = useState<string>("");
-  const [images, setImages] = useState<string[]>([]);
 
   const [lastResult, action] = useActionState(addProject, undefined);
   const [form, fields] = useForm({
@@ -24,47 +21,52 @@ export default function ProjectForm() {
     shouldRevalidate: "onInput",
   });
 
-  const handleImagesUpload = (urls: string[]) => {
-    setImages((prevImages) => [...prevImages, ...urls]);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const formData = {
-      projectName: form.value?.projectName,
-      projectLink: form.value?.projectLink,
-      description: form.value?.description,
-      tech: form.value?.tech,
-      images,
-    };
-
-    console.log("Form Data:", formData);
-    form.onSubmit(e);
-  };
-
   return (
     <form
       id={form.id}
-      onSubmit={handleSubmit}
+      onSubmit={form.onSubmit}
       action={action}
       className="project-form"
     >
       <div>
-        <label htmlFor="projectName">Name</label>
-        <input type="text" name="projectName" id="name" required />
+        {/* <label htmlFor="projectName">Name</label> */}
+        <input
+          type="text"
+          name="projectName"
+          id="name"
+          placeholder="Name"
+          required
+        />
       </div>
       <div>
-        <label htmlFor="description">Description</label>
-        <input type="text" name="description" id="description" required />
+        {/* <label htmlFor="description">Description</label> */}
+        <input
+          type="text"
+          name="description"
+          id="description"
+          placeholder="Description"
+          required
+        />
       </div>
       <div>
-        <label htmlFor="projectLink">Project Link</label>
-        <input type="text" name="projectLink" id="projectLink" required />
+        {/* <label htmlFor="projectLink">Project Link</label> */}
+        <input
+          type="text"
+          name="projectLink"
+          id="projectLink"
+          placeholder="Project Link"
+          required
+        />
       </div>
       <div>
-        <label htmlFor="tech">Technologies</label>
-        <input type="text" name="tech" id="tech" required />
+        {/* <label htmlFor="tech">Technologies</label> */}
+        <input
+          type="text"
+          name="tech"
+          id="tech"
+          placeholder="Technologies"
+          required
+        />
       </div>
       <div>
         <label htmlFor="image">Image</label>
@@ -91,11 +93,6 @@ export default function ProjectForm() {
         )}
       </div>
       {fields.projectName.errors && <div>{fields.projectName.errors}</div>}
-
-      <div>
-        <MultiUploader onImagesUploaded={handleImagesUpload} />
-      </div>
-
       <SubmitButton />
     </form>
   );
