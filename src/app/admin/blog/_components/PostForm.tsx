@@ -21,13 +21,12 @@ export default function PostForm() {
       </div>
       <div>
         {/* <label htmlFor="description">Description</label> */}
-        <input
-          type="text"
+        <textarea
           name="description"
           id="description"
           placeholder="Description"
           required
-        />
+        ></textarea>
       </div>
       <div>
         {/* <label htmlFor="intro">Intro</label> */}

@@ -22,12 +22,12 @@ model Author {
 }
 
 model Project {
-  id          String @id @default(uuid())
+  id          String   @id @default(uuid())
   projectName String
   projectLink String
   imagePath   String
   description String
-  tech        String
+  tech        String[]
   authorId    String
 
   author Author @relation(fields: [authorId], references: [id])

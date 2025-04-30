@@ -10,6 +10,7 @@ import { projectSchema } from "../schema/addProjectSchema";
 
 export default function ProjectForm() {
   const [image, setImage] = useState<string>("");
+  const [tech, setTech] = useState<string[]>([]);
 
   const [lastResult, action] = useActionState(addProject, undefined);
   const [form, fields] = useForm({
@@ -20,6 +21,21 @@ export default function ProjectForm() {
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
   });
+
+  const handleChangeTech = (index: number, value: string) => {
+    const newTech = [...tech];
+    newTech[index] = value;
+    setTech(newTech);
+  };
+
+  const addTech = () => {
+    setTech([...tech, ""]);
+  };
+
+  const removeTech = (index: number) => {
+    const newTech = tech.filter((_, i) => i != index);
+    setTech(newTech);
+  };
 
   return (
     <form
@@ -39,16 +55,6 @@ export default function ProjectForm() {
         />
       </div>
       <div>
-        {/* <label htmlFor="description">Description</label> */}
-        <input
-          type="text"
-          name="description"
-          id="description"
-          placeholder="Description"
-          required
-        />
-      </div>
-      <div>
         {/* <label htmlFor="projectLink">Project Link</label> */}
         <input
           type="text"
@@ -59,15 +65,41 @@ export default function ProjectForm() {
         />
       </div>
       <div>
-        {/* <label htmlFor="tech">Technologies</label> */}
-        <input
-          type="text"
-          name="tech"
-          id="tech"
-          placeholder="Technologies"
+        {/* <label htmlFor="description">Description</label> */}
+        <textarea
+          // type="text"
+          name="description"
+          id="description"
+          placeholder="Description"
           required
         />
       </div>
+      <fieldset>
+        <legend>Technologies</legend>
+        {tech.map((technology, index) => (
+          <div key={index} className="tech-field">
+            <input
+              type="text"
+              // name="tech"
+              id={`tech-${index}`}
+              value={technology}
+              onChange={(e) => handleChangeTech(index, e.target.value)}
+              placeholder="Technology"
+              // required
+            />
+            <button
+              type="button"
+              onClick={() => removeTech(index)}
+              disabled={tech.length === 1}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
+        <button type="button" onClick={addTech}>
+          +
+        </button>
+      </fieldset>
       <div>
         <label htmlFor="image">Image</label>
         <input
